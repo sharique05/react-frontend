@@ -6,7 +6,7 @@ axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('ac
 const axiosInstance = axios.create()
 
 axiosInstance.interceptors.response.use(
-    (response) => response,
+    (response) => response.data,
     (error) =>
         Promise.reject(
             (error.response && error.response.data) || 'Something went wrong!'
